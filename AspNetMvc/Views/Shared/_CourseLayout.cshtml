@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <link href="~/Content/Styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="navbar navbar-inverse">
+        <h3>Tests Results</h3>
+    </div>
+    <div class="row panel">
+        <div id="categories" class="col-sm-5 col-md-4 col-lg-3">
+            @RenderSection("NavMenu", false)
+        </div>
+        <div class="col-sm-7 col-md-8 col-lg-9">
+            @RenderBody()
+        </div>
+    </div>
+
+
+</body>
+</html>
