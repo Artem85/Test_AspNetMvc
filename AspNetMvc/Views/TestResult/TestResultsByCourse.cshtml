@@ -1,0 +1,31 @@
+﻿@model IEnumerable<AspNetMvc.Models.TestResult>
+
+@{
+    ViewBag.Title = "TestResultsByTest";
+    Layout = "~/Views/Shared/_CourseLayout.cshtml";
+}
+
+<h2>Test Results By Course</h2>
+
+@foreach (var m in Model)
+{
+    <div class="row panel">
+        <div class="col-xs-12">
+            <h3>
+                <strong>@m.Name</strong>
+            </h3>
+            <strong class="lead">Student: @m.Name</strong><br />
+            <strong class="lead">Course: @m.Test</strong><br />
+            <strong class="lead">Date: @m.Date </strong><br />
+            <strong class="lead">Mark: @m.Mark </strong>
+        </div>
+    </div>
+}
+<p>
+    @Html.ActionLink("Back", "Index")
+</p>
+
+@section NavMenu {
+    @Html.Action("TestResultsByCourseMenu", "TestResult",
+         new { test = ViewBag.Selectedtest })
+}

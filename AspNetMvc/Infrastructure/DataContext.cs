@@ -24,7 +24,7 @@ namespace AspNetMvc.Infrastructure
                 Id = 1,
                 Name = "John Deer",
                 Test = "Mathematic",
-                Date = "2020-01-10",
+                Date = new DateTime(2020, 1, 10),
                 Mark = 5
             });
             Repository.Add(new TestResult()
@@ -32,7 +32,7 @@ namespace AspNetMvc.Infrastructure
                 Id = 2,
                 Name = "Robert Miles",
                 Test = "Mathematic",
-                Date = "2020-01-10",
+                Date = new DateTime(2020, 1, 10),
                 Mark = 4
             });
             Repository.Add(new TestResult()
@@ -40,7 +40,7 @@ namespace AspNetMvc.Infrastructure
                 Id = 3,
                 Name = "John Deer",
                 Test = "Physics",
-                Date = "2020-01-12",
+                Date = new DateTime(2020, 1, 12),
                 Mark = 5
             });
             Repository.Add(new TestResult()
@@ -48,7 +48,7 @@ namespace AspNetMvc.Infrastructure
                 Id = 4,
                 Name = "Robert Miles",
                 Test = "Physics",
-                Date = "2020-01-12",
+                Date = new DateTime(2020, 1, 12),
                 Mark = 3
             });
             Repository.Add(new TestResult()
@@ -56,7 +56,7 @@ namespace AspNetMvc.Infrastructure
                 Id = 5,
                 Name = "John Deer",
                 Test = "Chemistry",
-                Date = "2020-01-15",
+                Date = new DateTime(2020, 1, 15),
                 Mark = 5
             });
             Repository.Add(new TestResult()
@@ -64,7 +64,7 @@ namespace AspNetMvc.Infrastructure
                 Id = 6,
                 Name = "Robert Miles",
                 Test = "Chemistry",
-                Date = "2020-01-15",
+                Date = new DateTime(2020, 1, 15),
                 Mark = 4
             });
         }

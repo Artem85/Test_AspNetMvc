@@ -170,9 +170,14 @@
     <Content Include="Views\TestResult\TestResultsByCourse.cshtml" />
     <Content Include="Views\TestResult\TestResultsByCourseMenu.cshtml" />
     <Content Include="Views\Shared\_CourseLayout.cshtml" />
+    <Content Include="Views\TestResult\TestResultSelection.cshtml" />
+    <Content Include="Views\TestResult\_SelectionForm.cshtml" />
+    <Content Include="Views\TestResult\_TableHead.cshtml" />
+    <Content Include="Views\TestResult\_TableBody.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\TestResult\Selection\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

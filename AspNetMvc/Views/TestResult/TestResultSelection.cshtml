@@ -1,0 +1,25 @@
+﻿@model IEnumerable<AspNetMvc.Models.TestResult>
+
+@{
+    ViewBag.Title = "Test Results Selection";
+}
+
+<div class="row panel">
+    <div id="parameters" class="col-sm-2">
+        <h3>Selection Form</h3>
+        @Html.Partial("_SelectionForm")
+    </div>
+    <div class="col-sm-10">
+
+        <h2>Test Results</h2>
+
+        <table class="table" id="table">
+            <thead>
+                @Html.Partial("_TableHead", @Model)
+            </thead>
+            <tbody id="data">
+                @Html.Partial("_TableBody", @Model)
+            </tbody>
+        </table>
+    </div>
+</div>

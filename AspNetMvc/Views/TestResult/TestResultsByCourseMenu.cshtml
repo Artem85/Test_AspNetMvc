@@ -1,0 +1,21 @@
+﻿@model IEnumerable<string>
+
+<h3>Course</h3>
+
+@foreach (var link in Model)
+{
+    @Html.RouteLink(
+        link,
+        new {
+            controller = "TestResult",
+            action = "TestResultsByCourse",
+            test = link
+        },
+        new {
+            @class = "btn btn-block btn-default btn-lg btn-nav_menu"
+                + (link == ViewBag.SelectedCourse ? " btn-primary" : "")
+        })
+}
+
+
+
