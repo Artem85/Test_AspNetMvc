@@ -1,0 +1,36 @@
+﻿@using (Ajax.BeginForm(
+            new AjaxOptions
+            {
+                UpdateTargetId = "data",
+                LoadingElementId = "loading",
+                LoadingElementDuration = 1000,
+                Url = Url.Action("_SelectData")
+            }
+            ))
+{
+    <p>
+        Student Name<br />
+        <input type="text" name="selName" />
+    </p>
+    <p>
+        Course<br />
+        @Html.DropDownList("selTestName", ViewBag.selTestName as SelectList)
+    </p>
+    <p>
+        Mark<br />
+        <input type="text" name="selMark" />
+    </p>
+    <p>
+        Completion Date<br />
+        From <input type="date" name="startDate" />
+        To   <input type="date" name="endDate" />
+    </p>
+    <p>
+        <input type="submit" value="Show results" />
+    </p>
+    <div id="loading" class="load" style="display:none">
+        <p>Loading. Please wait...</p>
+    </div>
+}
+
+
