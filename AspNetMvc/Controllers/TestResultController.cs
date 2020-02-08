@@ -80,26 +80,30 @@ namespace AspNetMvc.Controllers
             return list;
         }
 
-        public PartialViewResult _SelectData(string selName
-            //, string selTestName, DateTime? startDate, DateTime? endDate, int? selMark
-            )
+        public PartialViewResult _SelectData(
+                                            string selName,
+                                            string selTestName,
+                                            DateTime? startDate,
+                                            DateTime? endDate,
+                                            int? selMark
+                                            )
         {
             var model = Repository.GetAll();
 
             if (!string.IsNullOrWhiteSpace(selName))
                 model = model.Where(e => e.Name.ToLower()
                     .Contains(selName.ToLower()));
-            //if (!string.IsNullOrWhiteSpace(selTestName))
-            //    model = model.Where(e => e.Test.ToLower()
-            //        .Contains(selTestName.ToLower()));
-            //if (startDate.HasValue)
-            //    model = model.Where(e => e.Date >= startDate.Value);
-            //if (endDate.HasValue)
-            //    model = model.Where(e => e.Date <= endDate.Value);
-            //if (selMark.HasValue)
-            //    model = model.Where(e => e.Mark == selMark);
+            if (!string.IsNullOrWhiteSpace(selTestName) && selTestName != allTestsValue)
+                model = model.Where(e => e.Test.ToLower()
+                    .Contains(selTestName.ToLower()));
+            if (startDate.HasValue)
+                model = model.Where(e => e.Date >= startDate.Value);
+            if (endDate.HasValue)
+                model = model.Where(e => e.Date <= endDate.Value);
+            if (selMark.HasValue)
+                model = model.Where(e => e.Mark == selMark);
 
-            System.Threading.Thread.Sleep(2000);
+            System.Threading.Thread.Sleep(1500);
             return PartialView("_TableBody", model);
         }
     }

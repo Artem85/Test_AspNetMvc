@@ -1,9 +1,11 @@
 ﻿@using (Ajax.BeginForm(
+            //"_SelectData",
             new AjaxOptions
             {
                 UpdateTargetId = "data",
                 LoadingElementId = "loading",
-                LoadingElementDuration = 1000,
+                LoadingElementDuration = 500
+                ,
                 Url = Url.Action("_SelectData")
             }
             ))
@@ -12,19 +14,19 @@
         Student Name<br />
         <input type="text" name="selName" />
     </p>
-    @*<p>
+    <p>
         Course<br />
         @Html.DropDownList("selTestName", ViewBag.selTestName as SelectList)
     </p>
     <p>
-        Completion Date<br />
-        From <input type="date" name="startDate" />
-        To   <input type="date" name="endDate" />
+        Completion Date <br/>
+        From <br/><input type="date" name="startDate" /><br />
+        To <br/><input type="date" name="endDate" />
     </p>
     <p>
         Mark<br />
         <input type="text" name="selMark" />
-    </p>*@
+    </p>
     <p>
         <input type="submit" value="Show results" />
     </p>
