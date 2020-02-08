@@ -18,19 +18,19 @@ namespace AspNetMvc.Tests.Controllers
                 new TestResults() {
                     Name = "Student1",
                     Test = "Test1",
-                    Date = "2020-01-01",
+                    Date = new DateTime(2020, 1, 1),
                     Mark = 5
                 },
                 new TestResults() {
                     Name = "Student2",
                     Test = "Test1",
-                    Date = "2020-01-01",
+                    Date = new DateTime(2020, 1, 1),
                     Mark = 5
                 },
                 new TestResults() {
                     Name = "Student3",
                     Test = "Test2",
-                    Date = "2020-01-01",
+                    Date = new DateTime(2020, 1, 1),
                     Mark = 5
                 }
                };
