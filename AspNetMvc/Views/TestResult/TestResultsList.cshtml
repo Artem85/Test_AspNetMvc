@@ -40,6 +40,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.Mark)
         </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+        </td>
     </tr>
 }
 

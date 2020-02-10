@@ -61,7 +61,7 @@ namespace AspNetMvc.Controllers
             return View(Repository.GetAll());
         }
 
-        List<SelectListItem> CreateTestNameList()
+        List<SelectListItem> CreateTestNameList(string selectedValue = "", string skippedValue = "")
         {
             List<string> values = new List<string>();
             values.Add(allTestsValue);
@@ -71,10 +71,13 @@ namespace AspNetMvc.Controllers
             List<SelectListItem> list = new List<SelectListItem>();
             foreach (string e in values)
             {
+                if (e == skippedValue)
+                    continue;
                 list.Add(new SelectListItem
                 {
                     Text = e,
-                    Value = e
+                    Value = e,
+                    Selected = e == selectedValue
                 });
             }
             return list;
@@ -105,6 +108,24 @@ namespace AspNetMvc.Controllers
 
             System.Threading.Thread.Sleep(1500);
             return PartialView("_TableBody", model);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            TestResult entityObject = Repository.GetById(id);
+            ViewBag.Test = CreateTestNameList(entityObject.Test, allTestsValue);
+            return View(entityObject);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(TestResult model) {
+            if (ModelState.IsValid)
+            {
+                Repository.Update(model);
+                return RedirectToAction("TestResultsList");
+            }
+            ViewBag.Test = CreateTestNameList(model.Test, allTestsValue);
+            return View(model);
         }
     }
 }

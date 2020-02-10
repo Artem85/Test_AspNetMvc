@@ -1,4 +1,5 @@
-﻿using Common.Interfaces;
+﻿using Common.Events;
+using Common.Interfaces;
 using Common.Repositories.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,12 @@ namespace Common.Repositories
     public class Repository<T> : IRepository<T> where T : IEntity
     {
         private readonly IList<T> _collection;
+        public event EventHandler<EntityUpdateEventArgs> ItemUpdate;
+
+        protected void OnItemUpdate(EntityUpdateEventArgs args)
+        {
+            ItemUpdate?.Invoke(this, args);
+        }
 
         public Repository(IList<T> collection)
         {
@@ -36,6 +43,12 @@ namespace Common.Repositories
         public T GetById(int id)
         {
             return _collection.First(e => e.Id == id);
+        }
+
+        public void Update(T item)
+        {
+            T obj = GetById(item.Id);
+            OnItemUpdate(new EntityUpdateEventArgs(obj, item));
         }
     }
 }

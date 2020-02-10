@@ -7,6 +7,10 @@
 
 <h2>Test Results By Course</h2>
 
+<p>
+    @Html.ActionLink("Back", "Index")
+</p>
+
 @foreach (var m in Model)
 {
     <div class="row panel">
@@ -21,9 +25,6 @@
         </div>
     </div>
 }
-<p>
-    @Html.ActionLink("Back", "Index")
-</p>
 
 @section NavMenu {
     @Html.Action("TestResultsByCourseMenu", "TestResult",

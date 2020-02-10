@@ -1,4 +1,5 @@
 ﻿using AspNetMvc.Models;
+using Common.Events;
 using Common.Repositories;
 using Common.Repositories.Interfaces;
 using System;
@@ -14,7 +15,19 @@ namespace AspNetMvc.Infrastructure
 
         static DataContext()
         {
+            Repository.ItemUpdate += Repository_ItemUpdate;
             CreateTestData();
+        }
+
+        private static void Repository_ItemUpdate(object sender, EntityUpdateEventArgs e)
+        {
+            TestResult obj = e.EntityObject as TestResult;
+            TestResult newObj = e.NewEntityObject as TestResult;
+
+            obj.Name = newObj.Name;
+            obj.Test = newObj.Test;
+            obj.Date = newObj.Date;
+            obj.Mark = newObj.Mark;
         }
 
         private static void CreateTestData()

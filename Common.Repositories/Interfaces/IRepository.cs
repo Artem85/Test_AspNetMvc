@@ -1,4 +1,5 @@
-﻿using Common.Interfaces;
+﻿using Common.Events;
+using Common.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +13,7 @@ namespace Common.Repositories.Interfaces
         IEnumerable<T> GetAll();
         T GetById(int id);
         void Add(T item);
+        void Update(T item);
+        event EventHandler<EntityUpdateEventArgs> ItemUpdate;
     }
 }
