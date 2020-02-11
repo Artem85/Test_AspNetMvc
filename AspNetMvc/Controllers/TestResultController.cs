@@ -110,7 +110,7 @@ namespace AspNetMvc.Controllers
             return PartialView("_TableBody", model);
         }
 
-        public ActionResult Edit(int id)
+        public ViewResult Edit(int id)
         {
             TestResult entityObject = Repository.GetById(id);
             ViewBag.Test = CreateTestNameList(entityObject.Test, allTestsValue);
